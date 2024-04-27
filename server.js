@@ -8,7 +8,7 @@ const app = express();
 const db_config = require('./configs/db_config')
 const userModel = require("./modules/user.model")
 const bcrypt = require('bcrypt')
-
+app.use(express.json())
 /**
  * creating an admin user at the strating of thr aaplication
  * if not already pressent
@@ -51,6 +51,8 @@ async function init() {
     }
 
 }
+//stich the route to the server
+require("./routers/auth.routes")(app)
 
 
 
