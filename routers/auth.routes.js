@@ -3,7 +3,8 @@
  * 
  * I need to insercept this
  */
-const authcontroller=require('../controllers/auth.controller')
-module.exports=(app)=>{
-    app.post("/ecomm/api/v1/auth/signup",authcontroller.signup)
+const authcontroller = require('../controllers/auth.controller')
+const authMW = require("../middlewares/auth_mw")
+module.exports = (app) => {
+    app.post("/ecomm/api/v1/auth/signup", [authMW.verifySignUpBody], authcontroller.signup)
 }
