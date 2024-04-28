@@ -8,7 +8,7 @@ const app = express();
 const db_config = require('./configs/db_config')
 const userModel = require("./modules/user.model")
 const bcrypt = require('bcrypt')
-app.use(express.json())
+app.use(express.json()) //this perform as like middlewares
 /**
  * creating an admin user at the strating of thr aaplication
  * if not already pressent
